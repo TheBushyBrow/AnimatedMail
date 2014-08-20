@@ -1,0 +1,209 @@
+%%[ /* 20140810_BRUS_Waterfall */
+
+var @omniture
+set @omniture = Concat("EV=", EMAIL_VERSION, Format(xtmonthnumeric,00), Format(xtday,00), xtyear, "&DI=", EMAIL_KEY, "&CD=", CARD_TYPE, "_", CUST_STATUS)
+
+
+
+var @mobilehidePH,
+@subjectLine,
+@preHeader,
+@linkPreHeader
+
+/* Hide Preheader in Mobile = "y" or leave empty ("") to show preheader in Mobile  */
+/* BRUS wants to keep mobile PH hidden. Please keep on 'y'  */
+set @mobilehidePH = "y"
+
+
+set @subjectLine = "10 hours to save—and the clock is ticking. "
+
+/* Leave empty ("") if not needed */
+set @preHeader = "Every minute counts: early shoppers save more. "
+set @linkPreHeader = Concat("http://bananarepublic.gap.com/?tid=brem005627&desktopSiteActive=true", "&", @omniture)
+
+
+
+/* Toggle (y/n) Mens Email */
+var @menMerch
+set @menMerch = "n"
+
+
+
+/* Toggle (y/n) to hide top nav. Leave "" as default to show top nav */
+var @topNavHide 
+set @topNavHide = ""
+
+
+
+/* Declare and set all links */
+var @linkBG, @linkM, @linkW, @linkP
+
+set @linkBG = @linkPreHeader
+
+set @linkM = Concat("http://bananarepublic.gap.com/browse/division.do?cid=5343&tid=brem005627&desktopSiteActive=true", "&", @omniture)
+set @linkW = Concat("http://bananarepublic.gap.com/browse/division.do?cid=5002&tid=brem005627&desktopSiteActive=true", "&", @omniture)
+set @linkP = Concat("http://bananarepublic.gap.com/browse/division.do?cid=5122&tid=brem005627&desktopSiteActive=true", "&", @omniture)
+
+
+/* Leave empty ("") if not needed. Do not include leading or trailing <br /> tags. */
+var @legal
+set @legal = ""
+
+
+/* Toggle (y/n) Everyday Free Shipping content, generic (BRISSA) barcode */
+var @displayEDFS,
+@bcGenDisplay
+
+set @displayEDFS = "y"
+set @bcGenDisplay = "n"
+
+
+/* Specify barcode ID and text, otherwise leave empty ("") */
+var @bar_code,
+@coupon_code
+
+set @bar_code = ""
+set @coupon_code = ""
+
+
+/* Plain text version (paste into text content tab):
+%%= ContentAreaByName("Shared Items\Shared Contents\Text_Files\201307_BRUS_TextFile") =%%
+*/
+
+]%%
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>%%= v(@subjectLine) =%%</title>
+	<style type="text/css">
+    /* Begin reset */
+    body { width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0; }
+    .ExternalClass { width:100%; }
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass a, .ExternalClass td, .ExternalClass div { line-height:100%; }
+    #backgroundTable { margin:0; padding:0; width:100% !important; line-height:100% !important; }
+    #outlook a { padding:0; }
+    /* End reset */
+
+    table td { border-collapse:collapse; }
+    @-ms-viewport { width:device-width; }
+
+    /* Use element[class="className"] instead of .className */
+    @media only screen and (max-width: 480px) {
+     table[id="backgroundTable"] { padding:5px 0 !important; }
+     table[class="wrapper"] { width:320px !important; }
+     *[class*="paddingreset"] { padding:0 !important; }
+     *[class*="padding-half"] { padding:0.5em !important; }
+     *[class*="pad-half-top"] { padding-top:0.5em !important; }
+     *[class*="pad-half-right"] { padding-right:0.5em !important; }
+     *[class*="pad-half-bottom"] { padding-bottom:0.5em !important; }
+     *[class*="pad-half-left"] { padding-left:0.5em !important; }
+
+     /* Hide from mobile */
+     *[class*="mobile-hidden"] { display:none; }
+
+     /* Hide from desktop */
+     div[class="show"], div[class="show"] img { display:block !important; margin:0 !important; padding:0 !important; overflow:visible !important; width:auto !important; max-height:inherit !important; height:auto !important; }
+
+     /* Scale image or text */
+     img[class="photo"] { width:100% !important; height:auto !important; }
+     img[class="photo90"] { width:90% !important; margin:0 auto !important; }
+     *[class*="text1"] { font-size:1em !important; line-height:1em !important; }
+     *[class*="text-75"] { font-size:0.75em !important; line-height:1.8em !important;  }
+     *[class*="text-half"] { font-size:0.5em !important; line-height:0.5em !important; }
+
+     /* Stack */
+     td[class="block"] { width:100% !important; display:block !important; }
+     span[class="block"] { display:block !important; }
+     td[class="reset"] { border:none !important; margin:0 !important; padding:0 !important; width:100% !important; }
+
+     /* custom */
+     td[class="w109"] { width:109px !important; height: auto !important; }
+     td[class="w87"] {  width:87px !important; height: auto !important; font-size:13px !important; line-height:13px !important;  }
+     td[class="w124"] { width:124px !important; height: auto !important; }
+ 
+     td[class="w105"] { width:105px !important; height: auto !important; }
+     td[class="w91"] { width:91px !important; height: auto !important; }
+
+   }
+ </style>
+</head>
+<body>
+	<custom name="opencounter" type="tracking">
+		<!-- Begin container and wrapper tables -->
+		<table border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#FFFFFF" id="backgroundTable">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" cellspacing="0" width="640" align="center" class="wrapper">
+						<!-- Begin header -->
+						<tr>
+							<td>
+								%%= ContentAreaByName("Shared Items\Shared Contents\Responsive\BRUS\Headers\20140201_BRUS_ResHeader") =%%
+							</td>
+						</tr>
+						<!-- End header -->
+						%%= ContentAreaByName("Shared Items\Shared Contents\MTL\BRUS\Embark\20140701_BRUS_MTL_Embark_Banner_MemberProspect") =%%
+						<!-- Begin modules -->
+						<tr>
+							<td>
+								<table border="0" cellpadding="0" cellspacing="0" width="640" class="wrapper">
+									<tr>
+										<td class=""><a href="%%=RedirectTo(@linkBG)=%%" alias="Body: Countdown Event" target="_blank"><img alt="COUNTDOWN EVENT" src="http://image.email.bananarepublic.ca/lib/fe9e13707564037d76/m/13/20140810_BRUS_Waterfall_01.gif" width="640" height="367" style="display:block;" border="0" class="photo" /></a></td>
+									</tr>
+									<tr>
+										<td class=""><a href="%%=RedirectTo(@linkBG)=%%" alias="Body: 35% Off" target="_blank"><img alt="35% OFF* YOUR PURCHASE" src="http://image.email.bananarepublic.ca/lib/fe9e13707564037d76/m/13/20140810_BRUS_Waterfall_02.gif" width="640" height="239" style="display:block;" border="0" class="photo" /></a></td>
+									</tr>
+									<tr>
+										<td class=""><a href="%%=RedirectTo(@linkBG)=%%" alias="Body: 30% Off" target="_blank"><img alt="30% OFF* YOUR PURCHASE" src="http://image.email.bananarepublic.ca/lib/fe9e13707564037d76/m/13/20140810_BRUS_Waterfall_03.gif" width="640" height="244" style="display:block;" border="0" class="photo" /></a></td>
+									</tr>
+									<tr>
+										<td class=""><a href="%%=RedirectTo(@linkBG)=%%" alias="Body: Exclusions apply" target="_blank"><img alt="Exclusions apply" src="http://image.email.bananarepublic.ca/lib/fe9e13707564037d76/m/13/20140810_BRUS_Waterfall_04.gif" width="640" height="111" style="display:block;" border="0" class="photo" /></a></td>
+									</tr>
+									<tr>
+										<td>
+											<table border="0" cellpadding="0" cellspacing="0" width="640" class="wrapper">
+												<tr>
+													<td class="w109"><a href="%%=RedirectTo(@linkBG)=%%" alias="Body: Left of Code" target="_blank"><img alt="Enter code" src="http://image.email.bananarepublic.ca/lib/fe9e13707564037d76/m/13/20140810_BRUS_Waterfall_05.gif" width="218" height="28" style="display:block;" border="0" class="photo" /></a></td>
+
+													<td class="w87" width="174" bgcolor="#FFFFFF" height="28" valign="middle" style="font-family:Arial,Helvetica,sans-serif; text-align:center; vertical-align:middle; font-size:26px; line-height:26px; mso-line-height-rule:exactly; color:#000000; background-color:#FFFFFF; font-weight:bold;">BRHOURS</td>
+
+													<td class="w124"><a href="%%=RedirectTo(@linkBG)=%%" alias="Body: Right of Code" target="_blank"><img alt="at checkout." src="http://image.email.bananarepublic.ca/lib/fe9e13707564037d76/m/13/20140810_BRUS_Waterfall_07.gif" width="248" height="28" style="display:block;" border="0" class="photo" /></a></td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td class=""><a href="%%=RedirectTo(@linkBG)=%%" alias="Body: SHOP NOW:" target="_blank"><img alt="SHOP NOW:" src="http://image.email.bananarepublic.ca/lib/fe9e13707564037d76/m/13/20140810_BRUS_Waterfall_08.gif" width="640" height="91" style="display:block;" border="0" class="photo" /></a></td>
+									</tr>
+									<tr>
+										<td>
+											<table border="0" cellpadding="0" cellspacing="0" width="640" class="wrapper">
+												<tr>
+													<td class="w105"><a href="%%=RedirectTo(@linkM)=%%" alias="Body: CTA Men" target="_blank"><img alt="MEN" src="http://image.email.bananarepublic.ca/lib/fe9e13707564037d76/m/13/20140810_BRUS_Waterfall_09.gif" width="210" height="118" style="display:block;" border="0" class="photo" /></a></td>
+
+													<td class="w91"><a href="%%=RedirectTo(@linkW)=%%" alias="Body: CTA Women" target="_blank"><img alt="WOMEN" src="http://image.email.bananarepublic.ca/lib/fe9e13707564037d76/m/13/20140810_BRUS_Waterfall_10.gif" width="182" height="118" style="display:block;" border="0" class="photo" /></a></td>
+
+													<td class="w124"><a href="%%=RedirectTo(@linkP)=%%" alias="Body: CTA Petites" target="_blank"><img alt="PETITES" src="http://image.email.bananarepublic.ca/lib/fe9e13707564037d76/m/13/20140810_BRUS_Waterfall_11.gif" width="248" height="118" style="display:block;" border="0" class="photo" /></a></td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<!-- End modules -->
+						<!-- Begin footer -->
+						<tr>
+							<td>
+								%%= ContentAreaByName("Shared Items\Shared Contents\Responsive\BRUS\Footers\20140201_BRUS_ResFooter") =%%
+							</td>
+						</tr>
+						<!-- End footer -->
+					</table>
+				</td>
+			</tr>
+		</table>
+		<!-- End container and wrapper tables -->
+	</body>
+	</html>
